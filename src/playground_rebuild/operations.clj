@@ -6,4 +6,5 @@
 
 (defn coremult [a-vector]
   "it multiplies a column vector for itself"
-  )
+  (let [my-vector (matrix [a-vector])]
+    (mmul (transpose my-vector) my-vector)))
