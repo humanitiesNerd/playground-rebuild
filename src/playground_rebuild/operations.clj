@@ -2,7 +2,8 @@
   (:refer-clojure :exclude [* - + == /])
   (:use clojure.core.matrix)
   (:use clojure.core.matrix.operators)
-  (:use  [clojure.tools.namespace.repl :only (refresh)]))
+  (:use  [clojure.tools.namespace.repl :only (refresh)])
+  (:use midje.cascalog))
 
 
 (defn coremult [a-vector]
