@@ -1,8 +1,11 @@
 (ns playground-rebuild.operations
   (:refer-clojure :exclude [* - + == /])
-  (:use clojure.core.matrix)
-  (:use clojure.core.matrix.operators)
-  (:use  [clojure.tools.namespace.repl :only (refresh)]))
+  (:use [clojure.core.matrix]
+        [clojure.tools.namespace.repl :only (refresh)]
+        [cascalog.api :exclude (div)]
+        [cascalog.more-taps :only (lfs-delimited)])
+  )
+
 
 
 (defn coremult [a-vector]
