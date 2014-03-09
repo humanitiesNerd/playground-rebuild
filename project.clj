@@ -9,4 +9,5 @@
                  [cascalog/cascalog-more-taps "2.0.0" ]
                  ]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]
-                                  [org.apache.hadoop/hadoop-core "1.1.2"]]}})
+                                  [org.apache.hadoop/hadoop-core "1.2.1"]
+                                  [cascalog/midje-cascalog "2.0.0"]]}})
