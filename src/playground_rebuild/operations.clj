@@ -14,6 +14,8 @@
   (let [my-vector (matrix [a-vector])]
     (mmul (transpose my-vector) my-vector)))
 
-(defn test-query []
+(defn test-query [] "abc")
+
+(defn t_test-query []
   (let [tap (lfs-delimited "X-matrix/tests.txt")]
     (<- [?line] (tap ?line))))
