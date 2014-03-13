@@ -1,10 +1,12 @@
 (ns playground-rebuild.operations
   (:refer-clojure :exclude [* - + == /])
   (:use [clojure.core.matrix]
+        [clojure.core.matrix.operators]
         [clojure.tools.namespace.repl :only (refresh)]
         [cascalog.api :exclude (div)]
         [cascalog.more-taps :only (lfs-delimited)]
-        [midje.cascalog])
+        ;[midje.cascalog]
+        )
   )
 
 
@@ -15,11 +17,31 @@
         my-vector (matrix [without-y])]
     (mmul (transpose my-vector) my-vector)))
 
-(comment
-  (defn coremult [vector]
-    (let [without-y (subvec vector 0 (- (count vector) 1))]
-      (i/mmult without-y (i/trans without-y)))
-    ))
+(defn to-int-vector [line]
+  (vec (map #(Integer/parseInt %) (clojure.string/split line #", ")))
+)
+
+(defmapcatop vectormult [line]
+  [[(coremult (to-int-vector line))]]
+  )
+
+
+(defn coresum [matrix1 matrix2]
+  (if (and (matrix? matrix1) (matrix? matrix2))
+    (+ matrix1 matrix2)
+    (matrix [[1 1] [1 1]])))
+
+(defparallelagg matrix-sum :init-var #'identity :combine-var #'coresum)
+
+(defn test-query-2 []
+  (let [tap (lfs-delimited "X-matrix/tests.txt")]
+    (<- [?final-matrix]
+        (tap ?line)
+        (vectormult ?line :> ?final-matrix)
+        ;(matrix-sum ?intermediate-matrices :> ?final-matrix)
+        )))
+
+
 
 (defn vanilla-function [] "abc")
 
