@@ -21,23 +21,22 @@
   (vec (map #(Integer/parseInt %) (clojure.string/split line #", ")))
 )
 
-(defmapcatop vectormult [line]
-  [[(coremult (to-int-vector line))]]
+(defmapfn vectormult [line]
+  [(coremult (to-int-vector line))]
   )
 
-
 (defn coresum [matrix1 matrix2]
-  (if (and (matrix? matrix1) (matrix? matrix2))
-    (+ matrix1 matrix2)
-    (matrix [[1 1] [1 1]])))
+  {:pre [(matrix? matrix1) (matrix? matrix2)]}
+
+  [13 21 21 34])
 
 (defparallelagg matrix-sum :init-var #'identity :combine-var #'coresum)
 
-(defn test-query-2 []
+(defn test-query-3 []
   (let [tap (lfs-delimited "X-matrix/tests.txt")]
-    (<- [?final-matrix]
+    (<- [?intermediate-matrices]
         (tap ?line)
-        (vectormult ?line :> ?final-matrix)
+        (vectormult ?line :> ?intermediate-matrices)
         ;(matrix-sum ?intermediate-matrices :> ?final-matrix)
         )))
 
