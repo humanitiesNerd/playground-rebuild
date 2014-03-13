@@ -11,8 +11,15 @@
 
 (defn coremult [a-vector]
   "it multiplies a column vector for itself"
-  (let [my-vector (matrix [a-vector])]
+  (let [without-y (subvec a-vector 0 (clojure.core/- (count a-vector) 1))
+        my-vector (matrix [without-y])]
     (mmul (transpose my-vector) my-vector)))
+
+(comment
+  (defn coremult [vector]
+    (let [without-y (subvec vector 0 (- (count vector) 1))]
+      (i/mmult without-y (i/trans without-y)))
+    ))
 
 (defn vanilla-function [] "abc")
 
