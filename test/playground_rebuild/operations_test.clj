@@ -6,6 +6,10 @@
   )
 
 
+(defn test-data []
+  (pig/return [[3 5 1] [2 3 1]]))
+
+
 (deftest test-my-data
   (let [data (test-data)]
     (is (= (pig/dump data)

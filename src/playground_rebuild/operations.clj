@@ -8,10 +8,6 @@
   )
 
 
-(defn test-data []
-  (pig/return [[3 5 1] [2 3 1]]))
-
-
 (defn coremult [a-vector]
   "it multiplies a column vector for itself"
   (let [without-y (subvec a-vector 0 (- (count a-vector) 1))
