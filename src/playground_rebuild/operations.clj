@@ -2,8 +2,7 @@
   (:refer-clojure :exclude [* - + == /])
   (:use [clojure.core.matrix]
         [clojure.tools.namespace.repl :only (refresh)]
-        [cascalog.api :exclude (div)]
-        [cascalog.more-taps :only (lfs-delimited)])
+        )
   )
 
 
