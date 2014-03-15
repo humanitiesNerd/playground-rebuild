@@ -17,3 +17,7 @@
   (let [without-y (subvec a-vector 0 (- (count a-vector) 1))
         my-vector (m/matrix [without-y])]
     (m/mmul (m/transpose my-vector) my-vector)))
+
+(defn produce-A [data]
+  (pig/reduce m/add
+              (pig/map coremult (data))))
