@@ -1,7 +1,7 @@
 (ns playground-rebuild.operations
   (:refer-clojure :exclude [* - + == /])
   (:require [clojure.core.matrix :as m]
-            [clojure.tools.namespace.repl :only (refresh)]
+            [clojure.tools.namespace.repl :refer [refresh]]
             [pigpen.core :as pig]
         )
   )

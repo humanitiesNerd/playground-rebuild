@@ -1,7 +1,7 @@
 (ns playground-rebuild.operations-test
-  (:use [midje sweet]
-        [clojure.tools.namespace.repl :only (refresh)]
-        [playground-rebuild.operations])
+  (:require [midje sweet]
+            [clojure.tools.namespace.repl :refer [refresh]]
+            [playground-rebuild.operations])
   )
 
 
