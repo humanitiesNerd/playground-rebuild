@@ -8,7 +8,7 @@
 
 
 (defn test-data []
-  (pig/load-tsv "X-matrix/tests.tsv"))
+  (pig/return [[3 5 1] [2 3 1]]))
 
 (defn coremult [a-vector]
   "it multiplies a column vector for itself"
