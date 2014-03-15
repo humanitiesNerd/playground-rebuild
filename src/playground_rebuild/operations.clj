@@ -1,7 +1,8 @@
 (ns playground-rebuild.operations
   (:refer-clojure :exclude [* - + == /])
-  (:use [clojure.core.matrix]
-        [clojure.tools.namespace.repl :only (refresh)]
+  (:require [clojure.core.matrix :as m]
+            [clojure.tools.namespace.repl :only (refresh)]
+            [pigpen.core :as pig]
         )
   )
 
@@ -9,5 +10,5 @@
 
 (defn coremult [a-vector]
   "it multiplies a column vector for itself"
-  (let [my-vector (matrix [a-vector])]
-    (mmul (transpose my-vector) my-vector)))
+  (let [my-vector (m/matrix [a-vector])]
+    (m/mmul (m/transpose my-vector) my-vector)))
