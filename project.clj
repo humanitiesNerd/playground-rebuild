@@ -13,4 +13,4 @@
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]
                                   [org.apache.pig/pig "0.11.1"]
                                   [org.apache.hadoop/hadoop-core "1.1.2"]
-                                  [midje "1.6.3"]]}})
+                                  ]}})

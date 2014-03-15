@@ -1,11 +1,11 @@
 (ns playground-rebuild.operations-test
-  (:require [midje sweet]
+  (:require [clojure.test :refer :all]
             [clojure.tools.namespace.repl :refer [refresh]]
             [playground-rebuild.operations])
   )
 
 
-(fact (coremult [2 3 4]) => [[4 6] [6 9]])
+
 
 
 
