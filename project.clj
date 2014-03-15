@@ -5,8 +5,8 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [net.mikera/core.matrix "0.20.0"]
-                 [cascalog/cascalog-core "2.0.0"]
-                 [cascalog/cascalog-more-taps "2.0.0" ]
                  ]
+  :plugins [ [lein-clean-m2 "0.1.2"]]
+
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]
                                   [org.apache.hadoop/hadoop-core "1.1.2"]]}})
