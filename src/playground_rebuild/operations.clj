@@ -11,7 +11,9 @@
 (defn test-data []
   (pig/return [[3 5 1] [2 3 1]]))
 
+
 (defn coremult [a-vector]
   "it multiplies a column vector for itself"
-  (let [my-vector (m/matrix [a-vector])]
+  (let [without-y (subvec a-vector 0 (- (count a-vector) 1))
+        my-vector (m/matrix [without-y])]
     (m/mmul (m/transpose my-vector) my-vector)))
